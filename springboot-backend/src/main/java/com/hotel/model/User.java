@@ -19,6 +19,7 @@ public class User
 	private String name;
 	private String email;
 	private String password;
+	private String role;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Booking> bookings;
 	
@@ -26,11 +27,12 @@ public class User
 	public User() {
 		super();
 	}
-	public User(String name, String email, String password) {
+	public User(String name, String email, String password,String role) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	public int getId() {
 		return id;
@@ -57,8 +59,15 @@ public class User
 		this.password = password;
 	}
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password +", role=" + role + "]";
 	}
 }

@@ -13,7 +13,7 @@ class UserHomePageComponent extends Component
         {/* Masthead*/}
         <header className="masthead" >
           <div className="container">
-            <div className="masthead-subheading">Welcome To The CogniStay</div>
+            <div className="masthead-subheading">Welcome <span class="kulpreet">{isUserLoggedIn && <i class="fa fa-user-circle-o"></i> && JSON.parse(window.sessionStorage.getItem('authenticatedUser')).name}</span> To The CogniStay</div>
             <div className="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <a className="btn btn-warning btn-xl text-uppercase" href="#services">Tell Me More</a>
           </div>

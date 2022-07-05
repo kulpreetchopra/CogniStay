@@ -64,6 +64,7 @@ class ListUserComponent extends Component
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -74,7 +75,8 @@ class ListUserComponent extends Component
                                                 <tr key={user.id}>
                                                     <td>{user.name}</td>
                                                     <td>{user.email}</td>
-                                                    <td><button className='btn btn-primary' onClick={() => this.updateUserClicked(user.id, user.name)}>Update</button>   <button className='btn btn-warning' onClick={() => this.deleteUserClicked(user.id, user.name)}>Delete</button></td>
+                                                    <td>{user.role}</td>
+                                                    <td><button className='btn btn-warning' onClick={() => this.updateUserClicked(user.id, user.name)}>Update</button>   <button className='btn btn-danger' onClick={() => this.deleteUserClicked(user.id, user.name)}>Delete</button></td>
                                                 </tr>
                                         )
                                     }

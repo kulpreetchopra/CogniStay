@@ -10,6 +10,7 @@ class UserRegistrationComponent extends Component
         name : '',
         email : '',
         password : '',
+        role : 'user',
         repeatPassword : '',
     }
     this.handleChange = this.handleChange.bind(this);
@@ -25,7 +26,7 @@ class UserRegistrationComponent extends Component
 
   RegisterClicked()
   {
-    let user = {name:this.state.name, email:this.state.email, password:this.state.password}
+    let user = {name:this.state.name, email:this.state.email, role: "user", password:this.state.password}
     UserService.addUser(user).then(res=>{
       this.props.navigate("/login");
     });
@@ -48,14 +49,14 @@ class UserRegistrationComponent extends Component
         {successMessage()}
         </div> */}
 
-        <section className="vh-100 bg-image" style={{ backgroundImage: 'url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp")' }}>
+        <section className="vh-101 bg-image" style={{ background: 'papayawhip' }}>
           <div className="mask d-flex align-items-center h-100 gradient-custom-3">
             <div className="container h-100">
               <div className="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                   <div className="card" style={{ borderRadius: '15px' }}>
                     <div className="card-body p-5">
-                      <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+                      <h2 className="text-uppercase text-center mb-5"><i className="fa fa-user-circle-o" style={{ color: '#ff6219' }} /> Create an account</h2>
                       <form>
                         <div className="form-outline mb-4">
                           <input type="text" id="name" name="name" className="form-control form-control-lg" placeholder="Enter Your Name" value={this.state.name} onChange={this.handleChange} />
@@ -65,6 +66,7 @@ class UserRegistrationComponent extends Component
                           <input type="email" id="email" name="email" className="form-control form-control-lg" placeholder="Enter Your Email" value={this.state.email} onChange={this.handleChange}/>
                           {/* <label className="form-label" htmlFor="email">Your Email</label> */}
                         </div>
+                        <input type="hidden" id="role" name="role" value={this.state.role} onChange={this.handleChange} />
                         <div className="form-outline mb-4">
                           <input type="password" id="password" name="password" className="form-control form-control-lg" value={this.state.password} onChange={this.handleChange} />
                           <label className="form-label" htmlFor="password">Password</label>

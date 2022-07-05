@@ -13,7 +13,8 @@ class UpdateUserInformationComponent extends Component
             id: this.props.params.id,
             name : '', 
             email : '',
-            password : ''
+            password : '',
+            role : ''
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.validate = this.validate.bind(this);
@@ -40,6 +41,10 @@ class UpdateUserInformationComponent extends Component
             errors.password = 'Please enter atleast 5 characters in the password'
         }
 
+        if(!values.role){
+            errors.role = 'Please enter the Role of the user'
+        }
+
         return errors;
     }
 
@@ -50,7 +55,8 @@ class UpdateUserInformationComponent extends Component
             .then(response => this.setState({
                 name: response.data.name,
                 email: response.data.email,
-                password: response.data.password
+                password: response.data.password,
+                role: response.data.role
             }))
     }
 
@@ -62,7 +68,8 @@ class UpdateUserInformationComponent extends Component
                 id: this.state.id,
                 name: values.name,
                 email: values.email,
-                password: values.password
+                password: values.password,
+                role: values.role
             })
             .then(
                 () => this.props.navigate('/admin-ListUsers')
@@ -74,7 +81,8 @@ class UpdateUserInformationComponent extends Component
                 id: this.state.id,
                 name: values.name,
                 email: values.email,
-                password: values.password
+                password: values.password,
+                role: values.role
             })
             .then(
                 () => this.props.navigate('/admin-ListUsers')
@@ -84,7 +92,7 @@ class UpdateUserInformationComponent extends Component
 
     render()
     {
-        let { name, email, password } = this.state
+        let { name, email, password, role } = this.state
 
         return (
             <div className="updateUserInformation">
@@ -94,7 +102,7 @@ class UpdateUserInformationComponent extends Component
                 <h2>Update User Information of - {this.props.params.id}</h2>
                 <div className="container">
                     <Formik 
-                        initialValues = {{ name, email, password }} 
+                        initialValues = {{ name, email, password, role }} 
                         onSubmit = {this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -107,6 +115,7 @@ class UpdateUserInformationComponent extends Component
                                         <ErrorMessage name="name" component="div" className="alert alert-warning" />
                                         <ErrorMessage name="email" component="div" className="alert alert-warning" />
                                         <ErrorMessage name="password" component="div" className="alert alert-warning" />
+                                        <ErrorMessage name="role" component="div" className="alert alert-warning" />
                                         
                                         <fieldset className="form-group">
                                             <label>User Name</label>
@@ -119,6 +128,10 @@ class UpdateUserInformationComponent extends Component
                                         <fieldset className="form-group">
                                             <label>User Password</label>
                                             <Field className="form-control" type="password" name="password" />
+                                        </fieldset>
+                                        <fieldset className="form-group">
+                                            <label>User Role</label>
+                                            <Field className="form-control" type="text" name="role" />
                                         </fieldset>
                                         
                                         <button className="btn btn-success" type="submit">Save</button>

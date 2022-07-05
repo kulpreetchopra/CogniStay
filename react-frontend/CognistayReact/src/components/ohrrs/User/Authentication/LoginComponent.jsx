@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import AuthenticationService from "./AuthenticationService.js";
+import AdminAuthenticationService from "../../Admin/Authentication/AdminAuthenticationService";
 
 
 class LoginComponent extends Component
@@ -18,6 +19,7 @@ class LoginComponent extends Component
             userId : '',
             userEmail : '',
             userName : '',
+            userRole : 'admin',
         }
         this.handleChange = this.handleChange.bind(this);
         this.LoginClicked = this.LoginClicked.bind(this);
@@ -43,6 +45,7 @@ class LoginComponent extends Component
                 this.setState({userId : response.data.id})
                 this.setState({userEmail : response.data.email})
                 this.setState({userName : response.data.name})
+                this.setState({userRole : response.data.role})
 
                 if(this.state.userEmail == null && this.state.userName == null)
                 {
@@ -52,9 +55,16 @@ class LoginComponent extends Component
                 }
                 else
                 {
+                    if(this.state.userRole === 'user'){
                     AuthenticationService.registerSuccessfulLogin(JSON.stringify(this.state.user));
                     this.props.navigate(`/`);
                     this.setState({hasLoginFailed : false})
+                    }
+                    else{
+                    AdminAuthenticationService.registerSuccessfulLogin(JSON.stringify(this.state.user));
+                    this.props.navigate(`/`);
+                    this.setState({hasLoginFailed : false})
+                    }
                 }   
             })
     }
@@ -82,10 +92,10 @@ class LoginComponent extends Component
                                                         {this.state.showSuccessMessage && <div>Login Successful</div>}
                                                     </div>
                                                     <div className="d-flex align-items-center mb-3 pb-1">
-                                                        <i className="fas fa-cubes fa-2x me-3" style={{ color: '#ff6219' }} />
+                                                        {/* <i className="fas fa-cubes fa-2x me-3" style={{ color: '#ff6219' }} /> */}
                                                         <span className="h1 fw-bold mb-0"><img class ="center" src="./img/LogoL.jpeg" alt="Atlantis Logo"/></span>
                                                     </div>
-                                                    <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
+                                                    <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}><i className="fa fa-user-circle-o me-3" style={{ color: '#ff6219' }} />Sign into your account</h5>
                                                     <div className="form-outline mb-4">
                                                         <input type="email" id="email" name="email" className="form-control form-control-lg" placeholder="example@xyzmail.com" value={this.state.email} onChange={this.handleChange} />
                                                     </div>

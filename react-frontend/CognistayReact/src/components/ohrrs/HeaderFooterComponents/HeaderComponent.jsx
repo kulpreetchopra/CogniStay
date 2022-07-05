@@ -36,11 +36,11 @@ class HeaderComponent extends Component
                         </div>
                         <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                             <div className="navbar-nav navbar-collapse justify-content-end">
-                                {!isUserLoggedIn && <li><Link className="nav-link" to="/login">User Login</Link></li> }
-                                {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
+                            {(!isAdminLoggedIn && !isUserLoggedIn) && <li><Link className="nav-link" to="/login"><i className="fa fa-user-circle-o fa-1x" /> Login</Link></li>}
+                            {(isUserLoggedIn && !isAdminLoggedIn) &&<li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                                 
-                                {!isAdminLoggedIn && <li><Link className="nav-link" to="/admin-Login">Admin Login</Link></li>}
-                                {isAdminLoggedIn && <li><Link className="nav-link" to="/admin-Logout" onClick={AdminAuthenticationService.logout}>Logout</Link></li>}
+                            {/* {!isAdminLoggedIn && <li><Link className="nav-link" to="/admin-Login">Admin Login</Link></li>} */}
+                            {(isAdminLoggedIn && !isUserLoggedIn) && <li><Link className="nav-link" to="/logout" onClick={AdminAuthenticationService.logout}>Logout</Link></li>}
                             </div>
                         </ul>
                     </div>

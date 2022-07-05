@@ -39,7 +39,7 @@ class AdminLoginComponent extends Component
         {
             this.setState({hasLoginFailed : true})
             this.setState({showSuccessMessage : false})
-            this.props.navigate("/admin-Login")
+            this.props.navigate("/login")
         }
 
         let authenticateAdmin = {username:this.state.username, password:this.state.password}
@@ -86,7 +86,7 @@ class AdminLoginComponent extends Component
                                                         {this.state.showSuccessMessage && <div>Login Successful</div>}
                                                     </div>
                                                     <div className="d-flex align-items-center mb-3 pb-1">
-                                                        <i className="fas fa-cubes fa-2x me-3" style={{ color: '#ff6219' }} />
+                                                        <i className="fa fa-user-circle-o fa-2x me-3" style={{ color: '#ff6219' }} />
                                                         <span className="h1 fw-bold mb-0">Admin Login</span>
                                                     </div>
                                                     <div className="form-outline mb-4">
