@@ -40,10 +40,16 @@ public class RoomController {
 		return roomService.addRoom(room);
 	}
 	
-	@PutMapping("/rooms/{id}")
 	public ResponseEntity<Room> updateRoom(@RequestBody Room room, @PathVariable int id)
 	{
 		roomService.updateRoom(room, id);
+		return new ResponseEntity<Room>(room, HttpStatus.OK);
+	}
+	
+    @PutMapping("/rooms/{id}")
+	public ResponseEntity<Room> updateSRoom(@RequestBody Room room, @PathVariable int id)
+	{
+		roomService.updateSRoom(room, id);
 		return new ResponseEntity<Room>(room, HttpStatus.OK);
 	}
 	

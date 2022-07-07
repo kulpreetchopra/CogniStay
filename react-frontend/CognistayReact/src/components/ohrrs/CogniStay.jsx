@@ -30,6 +30,7 @@ import ListAllRoomsComponent from './Admin/Rooms/ListAllRoomsComponent';
 import ListAllBookingsComponent from './Admin/AdminHomePage/ListAllBookingsComponent';
 
 import BookingsComponent from './User/UserHomePage/BookingsComponent';
+import ViewBookingsComponent from './User/UserHomePage/ViewBookingsComponent';
 import BillComponent from './User/UserHomePage/BillComponent';
 import UpdateUserInformationComponent from './Admin/UserListing/UpdateUserInformation';
 
@@ -62,6 +63,7 @@ class CogniStay extends Component {
                         <Route path="/home/:name" element={<AuthenticatedRoute><UserHomePageComponentwithParams /></AuthenticatedRoute>} />
                         <Route path="/rooms" element={<AuthenticatedRoute><ListAvailableRoomsComponent /></AuthenticatedRoute>} />
                         <Route path="/bookings" element={<AuthenticatedRoute><BookingsComponent /></AuthenticatedRoute>} />
+                        <Route path="/vbookings" element={<AuthenticatedRoute><ViewBookingsComponent /></AuthenticatedRoute>} />
                         <Route path="/bill" elemrnt={<AuthenticatedRoute><BillComponent /></AuthenticatedRoute>} />
                         <Route path="/logout" element={<AuthenticatedRoute><LogoutComponent /></AuthenticatedRoute>} />
 

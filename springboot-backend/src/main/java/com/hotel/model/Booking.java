@@ -27,6 +27,7 @@ public class Booking {
 	private int noOfAdults;
 	private int noOfChildren;
 	private int noOfDays;
+	private int roomNo;
 	
 	public int getNoOfDays() {
 		return noOfDays;
@@ -34,6 +35,14 @@ public class Booking {
 
 	public void setNoOfDays(int noOfDays) {
 		this.noOfDays = noOfDays;
+	}
+	
+	public int getroomNo() {
+		return roomNo;
+	}
+
+	public void setroomNo(int roomNo) {
+		this.roomNo = roomNo;
 	}
 
 	public int getNoOfAdults() {
@@ -56,20 +65,16 @@ public class Booking {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "room_id", referencedColumnName = "id")
-	private Room room;
 	
 	public Booking() {
 		
 	}
 
-	public Booking(Date checkIn, Date checkOut, User user, Room room) {
+	public Booking(Date checkIn, Date checkOut, User user) {
 		super();
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.user = user;
-		this.room = room;
 	}
 
 	public int getId() {
@@ -104,18 +109,10 @@ public class Booking {
 		this.user = user;
 	}
 
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room room) {
-		this.room = room;
-	}
-
 	@Override
 	public String toString() {
 		return "Booking [id=" + id + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", noOfAdults=" + noOfAdults
-				+ ", noOfChildren=" + noOfChildren + ", noOfDays=" + noOfDays + ", user=" + user + ", room=" + room
+				+ ", noOfChildren=" + noOfChildren + ", noOfDays=" + noOfDays + ", user=" + user + ", roomNo=" + roomNo
 				+ "]";
 	}
 }

@@ -127,16 +127,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -166,16 +166,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -205,16 +205,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -244,16 +244,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -283,16 +283,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -322,16 +322,16 @@ class UserHomePageComponent extends Component
                                 <div class="share-icons">
                                     <div class="border"></div>
                                     <ul class="team-social icons-1">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-twitter"></i></a>
                                         </li>
                                     </ul>
 
                                     <ul class="team-social icons-2">
-                                        <li><a href="#" class="social-icon"><i class="fa fa-skype"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-skype"></i></a>
                                         </li>
-                                        <li><a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                                        <li><a href="abc" class="social-icon"><i class="fa fa-linkedin"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -352,62 +352,6 @@ class UserHomePageComponent extends Component
 </div>
           </div>
         </section>
-
-        {/* Contact*/}
-        <section className="page-section" id="contact">
-          <div className="container">
-            <div className="text-center">
-              <h2 className="section-heading text-uppercase">Contact Us</h2>
-              <h3 className="section-subheading text-muted">Get in touch with us</h3>
-            </div>
-            
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-              <div className="row align-items-stretch mb-5">
-                <div className="col-md-6">
-                  <div className="form-group">
-                    {/* Name input*/}
-                    <input className="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                       {/* isUserLoggedIn && sessionStorage.getItem('authenticatedUser')} placeholder={
-                        isUserLoggedIn && "Your Name *"}  */}
-                    <div className="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                  </div>
-                  <div className="form-group">
-                    {/* Email address input*/}
-                    <input className="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                    <div className="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                    <div className="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                  </div>
-                  <div className="form-group mb-md-0">
-                    {/* Phone number input*/}
-                    <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                    <div className="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group form-group-textarea mb-md-0">
-                    {/* Message input*/}
-                    <textarea className="form-control" id="message" placeholder="Your Message *" data-sb-validations="required" defaultValue={""} />
-                    <div className="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                  </div>
-                </div>
-              </div>
-              {/* Submit success message*/}
-              <div className="d-none" id="submitSuccessMessage">
-                <div className="text-center text-white mb-3">
-                  <div className="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-              </div>
-              {/* Submit error message*/}
-              <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Error sending message!</div></div>
-              {/* Submit Button*/}
-              <div className="text-center"><button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-            </form>
-          </div>
-        </section>
-
     </div>    
     );
   }

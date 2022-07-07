@@ -47,22 +47,18 @@ class ListUserComponent extends Component
     render() {
         return (
             <div>
-                <div>
-                    <header id="admin-rooms-header" />
-                </div>
-
-                <div>
-                    <h2 className="display-4"><em>Find Users information below</em></h2>
-                </div>
-
                 <section>
                     <div>
-                        {this.state.message && <div className='alert alert-success'>{this.state.message}</div>}
                         <div className="container">
-                            <table className="table">
-                                <thead>
+                            <div className="masthead-subheading">Find Users information below</div>
+                        </div>
+                        <div>{this.state.message && <div className='alert alert-success'>{this.state.message}</div>}</div>
+                        <div className="container">
+                        <br/>
+                            <table className="table table-hover table-responsive-sm">
+                                <thead className="thead-dark">
                                     <tr>
-                                        <th>Name</th>
+                                    <th>Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
                                         <th>Action</th>

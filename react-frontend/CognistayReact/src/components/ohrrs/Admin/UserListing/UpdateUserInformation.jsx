@@ -18,6 +18,7 @@ class UpdateUserInformationComponent extends Component
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.validate = this.validate.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     validate(values)
@@ -42,8 +43,8 @@ class UpdateUserInformationComponent extends Component
         }
 
         if(!values.role){
-            errors.role = 'Please enter the Role of the user'
-        }
+            errors.role = 'Please select the Role of the user'
+        } 
 
         return errors;
     }
@@ -58,6 +59,11 @@ class UpdateUserInformationComponent extends Component
                 password: response.data.password,
                 role: response.data.role
             }))
+    }
+
+    handleChange(event) {
+        console.log(event.target.name)
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     onSubmit(values)
@@ -99,8 +105,11 @@ class UpdateUserInformationComponent extends Component
                 <div>
                     <header id="admin-rooms-header" />
                 </div>
-                <h2>Update User Information of - {this.props.params.id}</h2>
                 <div className="container">
+                            <div className="masthead-subheading">Users information of - {this.props.params.id}</div>
+                <br/>
+                </div>
+                <div className="container border border-warning">
                     <Formik 
                         initialValues = {{ name, email, password, role }} 
                         onSubmit = {this.onSubmit}
@@ -112,11 +121,19 @@ class UpdateUserInformationComponent extends Component
                             (props) => (
                                 <div className="container">
                                     <Form>
+                                        <ErrorMessage name="role" component="div" className="alert alert-warning" />
                                         <ErrorMessage name="name" component="div" className="alert alert-warning" />
                                         <ErrorMessage name="email" component="div" className="alert alert-warning" />
                                         <ErrorMessage name="password" component="div" className="alert alert-warning" />
-                                        <ErrorMessage name="role" component="div" className="alert alert-warning" />
                                         
+                                        <fieldset className="form-group" name="role">
+                                            <label>User Role</label>
+                                            <select className="form-control" name="role" onChange={this.handleChange}>
+                                                    <option>select</option>
+                                                    <option>user</option>
+                                                    <option>admin</option>
+                                            </select>
+                                        </fieldset>
                                         <fieldset className="form-group">
                                             <label>User Name</label>
                                             <Field className="form-control" type="text" name="name" />
@@ -128,10 +145,6 @@ class UpdateUserInformationComponent extends Component
                                         <fieldset className="form-group">
                                             <label>User Password</label>
                                             <Field className="form-control" type="password" name="password" />
-                                        </fieldset>
-                                        <fieldset className="form-group">
-                                            <label>User Role</label>
-                                            <Field className="form-control" type="text" name="role" />
                                         </fieldset>
                                         
                                         <button className="btn btn-success" type="submit">Save</button>

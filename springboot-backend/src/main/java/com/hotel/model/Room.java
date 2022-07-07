@@ -19,17 +19,14 @@ public class Room
 	private int id;
 	private String roomName;
 	private String roomType;
-	private String description;
-	private int capacity;
-	private int roomNo;
-	private int floorNo;
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
 
 	private int price;
-	private boolean isAvailable;
+	private String Available;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Booking> bookings;
@@ -37,17 +34,12 @@ public class Room
 	public Room() {
 	}
 
-	public Room(String roomName, int roomNo, int floorNo, int price, boolean isAvailable, String roomType, String description,
-			int capacity) {
+	public Room(String roomName,int price, String Available, String roomType) {
 		super();
 		this.roomName = roomName; 
-		this.roomNo = roomNo;
-		this.floorNo = floorNo;
 		this.price = price;
-		this.isAvailable = isAvailable;
+		this.Available = Available;
 		this.roomType = roomType;
-		this.description = description;
-		this.capacity = capacity;
 	}
 
 	public int getId() {
@@ -65,22 +57,6 @@ public class Room
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-	
-	public int getRoomNo() {
-		return roomNo;
-	}
-
-	public void setRoomNo(int roomNo) {
-		this.roomNo = roomNo;
-	}
-
-	public int getFloorNo() {
-		return floorNo;
-	}
-
-	public void setFloorNo(int floorNo) {
-		this.floorNo = floorNo;
-	}
 
 	public int getPrice() {
 		return price;
@@ -90,12 +66,12 @@ public class Room
 		this.price = price;
 	}
 
-	public boolean isAvailable() {
-		return isAvailable;
+	public String getAvailable() {
+		return Available;
 	}
 
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
+	public void setAvailable(String Available) {
+		this.Available = Available;
 	}
 
 	public String getRoomType() {
@@ -104,22 +80,6 @@ public class Room
 
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getCapacity() {
-		return capacity;
-	}
-
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
 	}
 	
 	@Override
@@ -136,9 +96,8 @@ public class Room
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", roomName=" + roomName + ", roomType=" + roomType + ", description=" + description
-				+ ", capacity=" + capacity + ", roomNo=" + roomNo + ", floorNo=" + floorNo + ", price=" + price
-				+ ", isAvailable=" + isAvailable + ", bookings=" + bookings + "]";
+		return "Room [id=" + id + ", roomName=" + roomName + ", roomType=" + roomType + ", price=" + price
+				+ ", Available=" + Available + ", bookings=" + bookings + "]";
 	}
 	
 }

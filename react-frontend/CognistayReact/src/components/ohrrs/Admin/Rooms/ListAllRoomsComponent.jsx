@@ -50,29 +50,23 @@ class ListAllRoomsComponent extends Component
 
     render() {
         return (
-
-            <div className="listAllRoomsComponent">
-                <div>
-                    <header id="admin-rooms-header" />
-                </div>
-                <div>
-                    <h1 className="display-4"><em>Find rooms information below</em></h1>
-                </div>
+            <div>
                 <section>
                     <div>
-                        { this.state.message && <div className='alert alert-success'>{this.state.message}</div> }
                         <div className="container">
-                            <table className="table">
-                                <thead>
+                            <div className="masthead-subheading">Please find All Rooms below</div>
+                        </div>
+                        <div>{ this.state.message && <div className='alert alert-success'>{this.state.message}</div> }</div>
+                        <div className="container">
+                        <br/>
+                            <table className="table table-hover table-responsive-sm">
+                                <thead className="thead-dark">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Room Number</th>
+                                    <th>Room Number</th>
+                                        <th>Room Name</th>
                                         <th>Type</th>
-                                        <th>Description</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
                                         <th>Price</th>
-                                        {/* <th>Available</th> */}
+                                        <th>Available</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -81,15 +75,18 @@ class ListAllRoomsComponent extends Component
                                         this.state.rooms.map(
                                             room =>
                                                 <tr key={room.id}>
+                                                    <td>{room.id}</td>
                                                     <td>{room.roomName}</td>
-                                                    <td>{room.roomNo}</td>
                                                     <td>{room.roomType}</td>
-                                                    <td>{room.description}</td>
-                                                    <td>{room.floorNo}</td>
-                                                    <td>{room.capacity}</td>
-                                                    <td>{room.price}</td>
-                                                    {/* <td>{room.available}</td> */}
-                                                    <td><button className='btn btn-primary' onClick={ () => this.updateRoomClicked(room.id, room.roomNo)}>Update</button><button className='btn btn-warning' onClick={ () => this.deleteRoomClicked(room.id, room.roomNo)}>Delete</button></td>
+                                                    <td>₹{room.price}</td>
+                                                    {
+                                                    room.available=="yes"
+                                                    ?
+                                                    <td><i class="fa fa-calendar-check-o" style={{fontSize:"36px",color:"green"}}></i></td>
+                                                    :
+                                                    <td><i class="fa fa-calendar-check-o" style={{fontSize:"36px",color:"red"}}></i></td>
+                                                    }  
+                                                    <td><button className='btn btn-warning' onClick={ () => this.updateRoomClicked(room.id, room.roomNo)}>Update</button><button className='btn btn-danger' onClick={ () => this.deleteRoomClicked(room.id, room.roomNo)}>Delete</button></td>
                                                 </tr>
                                         )
                                     }

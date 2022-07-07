@@ -17,6 +17,11 @@ class RoomsService
     {
         return axios.put(USER_API_BASE_URL + `/${id}`, room);
     }
+    
+    updateSRoom(room, id)
+    {
+        return axios.put(USER_API_BASE_URL + `/${id}`, room);
+    }
 
     getRoomsData()
     {

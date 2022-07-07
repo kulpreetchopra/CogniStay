@@ -3,6 +3,7 @@ import { Component } from "react";
 import moment from 'moment';
 
 import BookingsService from "../../../../api/services/BookingsService";
+import RoomsService from "../../../../api/services/RoomsService";
 
 
 class BookingsComponent extends Component 
@@ -12,23 +13,27 @@ class BookingsComponent extends Component
         super(props)
         this.state = {
             bookings: [],
+            rooms:[],
             checkIn: moment().format('YYYY-MM-DD'),
             checkOut: moment().format('YYYY-MM-DD'),
             noOfAdults: '',
             noOfChildren: '',
-            roomType: '',
+            roomNo: '',
             noOfDays: '',
             user : null
-            
         }
         this.handleChange = this.handleChange.bind(this);
         this.bookRoomClicked = this.bookRoomClicked.bind(this);
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let userId = JSON.parse(window.sessionStorage.getItem('authenticatedUser')).id
         BookingsService.getBookingsData(userId).then((res) => {
             this.setState({ bookings: res.data });
+        });
+        
+        RoomsService.getRoomsData().then((res) => {
+            this.setState({ rooms: res.data });
         });
     }
 
@@ -44,10 +49,12 @@ class BookingsComponent extends Component
             checkOut: this.state.checkOut,
             noOfAdults: this.state.noOfAdults,
             noOfChildren: this.state.noOfChildren,
-            roomType: this.state.roomType,
-            noOfDays:1,
+            roomNo: this.state.roomNo,
+            noOfDays: this.state.noOfDays,
             user : JSON.parse(window.sessionStorage.getItem('authenticatedUser')),
-            room:null
+        }
+        let room = {
+            available: 'no',
         }
 
         console.log("****************")
@@ -56,6 +63,10 @@ class BookingsComponent extends Component
         console.log("************************************")
 
         BookingsService.addBooking(booking)
+            .then(res => {
+                this.props.navigate("/bookings");
+            });
+        RoomsService.updateSRoom(room,this.state.roomNo)
             .then(res => {
                 this.props.navigate("/bookings");
             });
@@ -71,22 +82,6 @@ class BookingsComponent extends Component
                             <div className="row">
                                 <div className="booking-form">
                                     <form>
-                                        {/* <div className="form-group">
-                                            <div className="form-checkbox">
-                                                <label htmlFor="roundtrip">
-                                                    <input type="radio" id="roundtrip" name="flight-type" />
-                                                    <span />Roundtrip
-                                                </label>
-                                                <label htmlFor="one-way">
-                                                    <input type="radio" id="one-way" name="flight-type" />
-                                                    <span />One way
-                                                </label>
-                                                <label htmlFor="multi-city">
-                                                    <input type="radio" id="multi-city" name="flight-type" />
-                                                    <span />Multi-City
-                                                </label>
-                                            </div>
-                                        </div> */}
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group">
@@ -107,7 +102,7 @@ class BookingsComponent extends Component
                                         <div className="row">
                                             <div className="col-md-4">
                                                 <span className="form-label" name="noOfAdults">Adults (18+)</span>
-                                                <select className="form-control" name="noOfAdults" onChange={this.handleChange}>
+                                                <select className="form-control" name="noOfAdults" onChange={this.handleChange} >
                                                     <option>1</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -124,17 +119,35 @@ class BookingsComponent extends Component
                                                 <span className="select-arrow" />
                                             </div>
                                         </div>
+                                        <br/>
                                         <div className="row">
                                             <div className="col-md-3">
                                                 <div className="form-group">
-                                                    <span className="form-label" name="roomType">Room Type</span>
-                                                    <select className="form-control" onChange={this.handleChange}>
-                                                        <option>Standard Room</option>
-                                                        <option>Business class Room</option>
-                                                        <option>Executive-Luxury Room</option>
+                                                    <span className="form-label" name="roomNo">Room Number</span>
+                                                    <select className="form-control" name="roomNo" onChange={this.handleChange}>
+                                                    {
+                                                    this.state.rooms.map(
+                                                        room =>
+                                                        room.available=="yes"
+                                                        ?
+                                                        <option style={{color:"white",backgroundColor:"green"}}>{room.id}</option>
+                                                        :
+                                                        <option style={{color:"white",backgroundColor:"red"}}>{room.id} Not Available</option>
+                                                        )
+                                                    }
                                                     </select>
                                                     <span className="select-arrow" />
                                                 </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <span className="form-label" name="noOfDays">Number Of Days</span>
+                                                <select className="form-control" name="noOfDays" onChange={this.handleChange}>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                </select>
+                                                <span className="select-arrow" />
                                             </div>
                                             <div className="col-md-3">
                                                 <div className="form-btn">
@@ -148,42 +161,6 @@ class BookingsComponent extends Component
                         </div>
                     </div>
                 </div>
-                <section>
-                    <div>
-                        <div className="container">
-                            <div className="masthead-subheading">Know the history of your bookings below</div>
-                        </div>
-                        <div className="container">
-
-                            <table className="table">
-                                {/* <caption>History of bookings</caption> */}
-                                <thead>
-                                    <tr>
-                                        <th>check-In</th>
-                                        <th>check-Out</th>
-                                        <th>Adults</th>
-                                        <th>Children</th>
-                                        <th>Booking ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        this.state.bookings.map(
-                                            booking =>
-                                                <tr key={booking.id}>
-                                                    <td>{moment(booking.checkIn).format('YYYY-MM-DD')}</td>
-                                                    <td>{moment(booking.checkOut).format('YYYY-MM-DD')}</td>
-                                                    <td>{booking.noOfAdults}</td>
-                                                    <td>{booking.noOfChildren}</td>
-                                                    <td>#{booking.id}</td>
-                                                </tr>
-                                        )
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
             </div>
         );
     }

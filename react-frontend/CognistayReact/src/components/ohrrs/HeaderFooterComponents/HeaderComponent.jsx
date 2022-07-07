@@ -23,9 +23,9 @@ class HeaderComponent extends Component
                         <div className="collapse navbar-collapse" id="navbarResponsive">
                             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                                 {isUserLoggedIn && <li><Link className="nav-link" to="/">Home</Link></li>}
-                                {isUserLoggedIn && <li><Link className="nav-link" to="/rooms">View Bills</Link></li>}
-                                {isUserLoggedIn && <li><Link className="nav-link" to="/bookings">Submit Claim</Link></li>}
-                                {isUserLoggedIn && <li><Link className="nav-link" to="/bookings">View Claim Status</Link></li>}
+                                {isUserLoggedIn && <li><Link className="nav-link" to="/rooms">View Rooms</Link></li>}
+                                {isUserLoggedIn && <li><Link className="nav-link" to="/bookings">Book Room</Link></li>}
+                                {isUserLoggedIn && <li><Link className="nav-link" to="/vbookings">View Bookings</Link></li>}
 
                                 {isAdminLoggedIn && <li><Link className="nav-link" to="/admin-ListRooms">Rooms</Link></li>}
                                 {isAdminLoggedIn && <li><Link className="nav-link" to="/admin-ListBookings">Bookings</Link></li>}

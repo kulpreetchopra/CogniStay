@@ -40,13 +40,17 @@ public class RoomService {
 	{	
 		Room existingRoom = roomRepo.findById(id).orElse(null);
 		existingRoom.setRoomName(room.getRoomName());
-		existingRoom.setRoomNo(room.getRoomNo());
-		existingRoom.setFloorNo(room.getFloorNo());
 		existingRoom.setPrice(room.getPrice());
-		existingRoom.setAvailable(room.isAvailable());
 		existingRoom.setRoomType(room.getRoomType());
-		existingRoom.setDescription(room.getDescription());
-		existingRoom.setCapacity(room.getCapacity());
+		existingRoom.setAvailable(room.getAvailable());
+		
+		return roomRepo.save(existingRoom);
+	}
+	
+	public Room updateSRoom(Room room, int id)
+	{	
+		Room existingRoom = roomRepo.findById(id).orElse(null);
+		existingRoom.setAvailable(room.getAvailable());
 		
 		return roomRepo.save(existingRoom);
 	}

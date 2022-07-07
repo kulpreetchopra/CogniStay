@@ -36,6 +36,8 @@ public class BookingService {
 		existingBooking.setNoOfAdults(booking.getNoOfAdults());
 		existingBooking.setNoOfChildren(booking.getNoOfChildren());
 		existingBooking.setNoOfDays(booking.getNoOfDays());
+		existingBooking.setroomNo(booking.getroomNo());
+		existingBooking.setUser(booking.getUser());
 		
 		return bookingRepo.save(existingBooking);
 	}
